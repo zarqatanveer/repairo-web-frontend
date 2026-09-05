@@ -70,28 +70,35 @@ function CreateShop(){
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                 {error && <p>{error}</p>}
-                <label htmlFor="name">Name</label><br></br>
+        <div className="min-h-screen bg-bg flex items-center justify-center px-4">
+            <form onSubmit={handleSubmit} className="bg-surface p-8 rounded-lg shadow-md w-full max-w-sm">
+                <h1 className="text-2xl font-bold text-text-primary mb-6">
+                    {isEditMode ? 'Edit Shop Info' : 'Add Shop'}
+                </h1>
+
+                 {error && <p className="text-red-500 mb-4">{error}</p>}
+
+                <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-1">Name</label><br></br>
                 <input placeholder="enter name"
                 type="text"
                 value={form.name}
                 onChange={handleInputChange}
                 id="name"
-                name="name"></input>
-                <br></br><br></br>
+                name="name"
+                 className="w-full border border-gray-300 rounded px-3 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-primary transition"></input>
 
-                <label htmlFor="location">Location</label><br></br>
+                <label htmlFor="location" className="block text-sm font-medium text-text-secondary mb-1">Location</label>
                 <input placeholder="enter location"
                 type="text"
                 value={form.location}
                 onChange={handleInputChange}
                 id="location"
-                name="location"></input>
+                name="location"
+                className="w-full border border-gray-300 rounded px-3 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-primary transition"></input>
 
-                <br></br><br></br>
-                <button disabled={isSubmitting}>
+            
+                <button disabled={isSubmitting}
+                className="w-full bg-primary text-white py-2 rounded hover:opacity-90 active:scale-[0.98] font-medium disabled:opacity-50 transition">
                 {isSubmitting ? 'Saving...' : 'Submit'}
                  </button>
             </form>

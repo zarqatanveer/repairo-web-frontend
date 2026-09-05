@@ -54,9 +54,26 @@ function Profile(){
 
                
     return(
-        <form onSubmit={handleSubmit}>
-            {error && <p>{error}</p>}
-            <label htmlFor="name"> name </label><br></br>
+        <div className="min-h-screen bg-bg flex items-center justify-center px-4">
+            <form onSubmit={handleSubmit}
+            className="bg-surface p-8 rounded-lg shadow-md w-full max-w-sm">
+                <h1 className="text-2xl font-bold text-text-primary mb-6">My Profile</h1>
+
+            {error && <p className="text-red-500 mb-4">{error}</p>}
+
+            <div className="mb-4">
+                <p className="text-sm text-text-secondary">Email</p>
+                <p className="text-text-primary">{form.email}</p>
+            </div>
+
+            <div className="mb-6 pb-6 border-b border-gray-200">
+                <p className="text-sm text-text-secondary">Role</p>
+                <p className="text-text-primary capitalize">{form.role}</p>
+            </div>
+
+            <label 
+            htmlFor="name" 
+            className="block text-sm font-medium text-text-secondary mb-1"> name </label>
             <input 
             placeholder="enter name"
             value={form.name}
@@ -64,28 +81,30 @@ function Profile(){
             type="text"
             id="name"
             name="name"
-            ></input>
-            <br></br>
+            className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary transition"
+            >
+            </input>
 
-            <label htmlFor="phone">phone </label><br></br>
+            <label 
+            htmlFor="phone"
+            className="block text-sm font-medium text-text-secondary mb-1">phone </label>
             <input
             placeholder="enter phone"
             value={form.phone}
             onChange={handleInputChange}
             type="text"
             id="phone"
-            name="phone"></input>
-            <br></br><br></br>
+            name="phone"
+            className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary transition"
+            >
+            </input>
 
-            <button>Submit</button>
+            <button className="w-full bg-primary text-white py-2 rounded hover:opacity-90 font-medium active:scale-[0.98] transition"
+            >Save Changes</button>
         </form>
+        </div>
     )
 }
 
 export default Profile
-
-    
-
-    
-
 

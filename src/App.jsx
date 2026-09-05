@@ -58,9 +58,10 @@ import Profile from './pages/Profile.jsx'
             <Route path="/bookings/:bookingId/review" element={
             <ProtectedRoute allowedRoles={["customer"]}><CreateReview /></ProtectedRoute>} />
 
-            
+   
             <Route path="/profile" element={
             <ProtectedRoute allowedRoles={["customer","shopOwner"]}><Profile /></ProtectedRoute>} />
+            
             
         
 

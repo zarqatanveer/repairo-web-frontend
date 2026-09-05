@@ -42,28 +42,47 @@ function MyVehicles(){
 
 
     return(
-        <div>
-            <h1>My Vehicles</h1>
-            {error && <p>{error}</p>}
-            <br></br>
-            {vehicles.map((vehicle)=>(
-                <div key={vehicle._id}>
-                    <p>{vehicle.type}</p>
-                    <p>{vehicle.color}</p>
-                    <p>{vehicle.year}</p>
-                    <p>{vehicle.plateNumber}</p> 
-            <button onClick={()=>navigate(`/vehicles/${vehicle._id}/edit`)}>Edit Vehicle</button><br></br>
-            <button onClick={() => handleDelete(vehicle._id)}>Delete Vehicle</button>
-            <br></br><br></br>
+        <div className="min-h-screen bg-bg px-6 py-10">
+            <div className="max-w-5xl mx-auto">
+                <div className="flex items-center justify-between mb-8">
+                    <h1 className="text-2xl font-bold text-text-primary">My Vehicles</h1>
+                    <button
+                        onClick={()=>navigate(`/vehicles/add`)}
+                        className="bg-primary text-white px-4 py-2 rounded hover:opacity-90 active:scale-[0.98] transition font-medium"
+                    >
+                        + Add Vehicle
+                    </button>
                 </div>
-            ))}
-          <button onClick={()=>navigate(`/vehicles/add`)}>Add Vehicle</button>  
+
+                {error && <p className="text-red-500 mb-4">{error}</p>}
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {vehicles.map((vehicle)=>(
+                        <div key={vehicle._id} className="bg-surface rounded-lg hover:shadow-xl transition shadow-md p-5">
+                            <p className="text-lg font-semibold text-text-primary capitalize">{vehicle.type}</p>
+                            <p className="text-text-secondary">{vehicle.color} · {vehicle.year}</p>
+                            <p className="text-text-secondary mb-4">{vehicle.plateNumber}</p>
+
+                            <div className="flex gap-3">
+                                <button
+                                    onClick={()=>navigate(`/vehicles/${vehicle._id}/edit`)}
+                                    className="flex-1 bg-primary-light text-white py-2 rounded hover:opacity-90 active:scale-[0.98] transition text-sm font-medium"
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    onClick={() => handleDelete(vehicle._id)}
+                                    className="flex-1 bg-red-500 text-white py-2 rounded hover:bg-red-600 active:scale-[0.98] transition text-sm font-medium"
+                                >
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
+        </div>
     )
 }
 
 export default MyVehicles
-                
-                    
-            
-            

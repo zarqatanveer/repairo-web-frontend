@@ -77,58 +77,66 @@ function CreateVehicle(){
 
     
     return(
-        <form onSubmit={handleSubmit}>
-            {error && <p>{error}</p>}
-            <label htmlFor="type">Type</label><br />
-            <input
-                placeholder="enter type"
-                type="text"
-                value={form.type}
-                onChange={handleInputChange}
-                id="type"
-                name="type"
-            />
+        <div className="min-h-screen bg-bg flex items-center justify-center px-4">
+            <form onSubmit={handleSubmit} className="bg-surface p-8 rounded-lg shadow-md w-full max-w-sm">
+                <h1 className="text-2xl font-bold text-text-primary mb-6">
+                    {isEditMode ? 'Edit Vehicle' : 'Add Vehicle'}
+                </h1>
 
-            <br /><br />
-            <label htmlFor="color">Color</label><br />
-            <input
-                placeholder="enter color"
-                type="text"
-                value={form.color}
-                onChange={handleInputChange}
-                id="color"
-                name="color"
-            />
+                {error && <p className="text-red-500 mb-4">{error}</p>}
 
-            <br /><br />
-            <label htmlFor="year">Year</label><br />
-            <input
-                placeholder="enter year"
-                type="number"
-                value={form.year}
-                onChange={handleInputChange}
-                id="year"
-                name="year"
-            />
+                <label htmlFor="type" className="block text-sm font-medium text-text-secondary mb-1">Type</label>
+                <input
+                    placeholder="enter type"
+                    type="text"
+                    value={form.type}
+                    onChange={handleInputChange}
+                    id="type"
+                    name="type"
+                    className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary transition"
+                />
 
-            <br /><br />
-            <label htmlFor="plateNumber">PlateNumber</label><br />
-            <input
-                placeholder="enter plateNumber"
-                type="text"
-                value={form.plateNumber}
-                onChange={handleInputChange}
-                id="plateNumber"
-                name="plateNumber"
-            />
-              
-            <br></br>
-            <button disabled={isSubmitting}>
-                {isSubmitting ? 'Saving...' : 'Submit'}
-            </button>
+                <label htmlFor="color" className="block text-sm font-medium text-text-secondary mb-1">Color</label>
+                <input
+                    placeholder="enter color"
+                    type="text"
+                    value={form.color}
+                    onChange={handleInputChange}
+                    id="color"
+                    name="color"
+                    className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary transition"
+                />
 
+                <label htmlFor="year" className="block text-sm font-medium text-text-secondary mb-1">Year</label>
+                <input
+                    placeholder="enter year"
+                    type="number"
+                    value={form.year}
+                    onChange={handleInputChange}
+                    id="year"
+                    name="year"
+                    className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary transition"
+                />
 
-        </form>
+                <label htmlFor="plateNumber" className="block text-sm font-medium text-text-secondary mb-1">Plate Number</label>
+                <input
+                    placeholder="enter plateNumber"
+                    type="text"
+                    value={form.plateNumber}
+                    onChange={handleInputChange}
+                    id="plateNumber"
+                    name="plateNumber"
+                    className="w-full border border-gray-300 rounded px-3 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-primary transition"
+                />
+
+                <button
+                    disabled={isSubmitting}
+                    className="w-full bg-primary text-white py-2 rounded hover:opacity-90 font-medium disabled:opacity-50 disabled:cursor-not-allowed transition"
+                >
+                    {isSubmitting ? 'Saving...' : 'Submit'}
+                </button>
+            </form>
+        </div>
     )
 }
 

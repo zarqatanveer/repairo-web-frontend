@@ -40,28 +40,58 @@ function ManageServices(){
     }
 }
     return(
-        <div>
-            <h1>Service</h1>
-            {error && <p>{error}</p>}
-            {services.map((service)=>(
-                <div key={service._id}>
-                    <br></br>
-                    <p>{service.name}</p>
-                    <p>{service.price}</p>
-                    <p>{service.duration}min</p>
-                    <button onClick={()=>navigate(`/services/${service._id}/edit`)}>Edit Service</button>
-                    <br></br>
-                    <button onClick={() => handleDelete(service._id)}>Delete Service</button>
-                    <br></br>
+        <div className="min-h-screen bg-bg px-6 py-10">
+            <div className="max-w-5xl mx-auto">
+            
+            <div className="flex items-center justify-between mb-8">
+                <h1 className="text-2xl font-bold text-text-primary">Services</h1>
+             <button 
+             onClick={()=>navigate(`/shop/${id}/services/add`)}
+             className="bg-primary text-white px-4 py-2 rounded hover:opacity-90 active:scale-[0.98] transition font-medium">
+                + Add Service</button>
+            </div>
+
+            {error && <p className="text-red-500 mb-4">{error}</p>}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {services.map((service)=>(
+                <div 
+                key={service._id}
+                className="bg-surface rounded-lg hover:shadow-xl transition shadow-md p-5">
+                    <p className="text-lg font-semibold text-text-primary capitalize">{service.name}</p>
+                    <p className="text-text-secondary">Rs {service.price}</p>
+                    <p className="text-text-secondary mb-4">{service.duration} min</p>
+
+                    <div className="flex gap-3">
+                    <button 
+                    onClick={()=>navigate(`/services/${service._id}/edit`)}
+                    className="flex-1 bg-primary-light text-white py-2 rounded hover:opacity-90 active:scale-[0.98] transition text-sm font-medium">
+                    Edit Service</button>
+                
+                    <button 
+                    onClick={() => handleDelete(service._id)}
+                    className="flex-1 bg-red-500 text-white py-2 rounded hover:bg-red-600 active:scale-[0.98] transition text-sm font-medium">
+                    Delete Service</button>
+                    </div> 
                 </div>
             ))}
-            <br></br>
-             <button onClick={()=>navigate(`/shop/${id}/services/add`)}>Add Service</button>
+            </div>
+            
+            
         </div>
+        </div>
+        
     )
 }               
 export default ManageServices
 
+
+        
+            
+                   
+
+                
+                
 
                 
                     

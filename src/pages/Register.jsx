@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register(){
     const navigate=useNavigate()
@@ -52,67 +52,81 @@ function Register(){
 
                
     return(
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="name"> name </label><br></br>
-            <input 
-            placeholder="enter name"
-            value={formData.name}
-            onChange={handleInputChange}
-            type="text"
-            id="name"
-            name="name"
-            ></input>
-            <br></br><br></br><br></br>
+        <div className="min-h-screen bg-bg flex items-center justify-center px-4">
+            <form onSubmit={handleSubmit} className="bg-surface p-8 rounded-lg shadow-md w-full max-w-sm">
+                <h1 className="text-2xl font-bold text-text-primary mb-6">Register</h1>
 
-            <label htmlFor="email"> email </label><br></br>
-            <input
-            placeholder="enter email"
-            value={formData.email}
-            onChange={handleInputChange}
-            type="text"
-            id="email"
-            name="email"></input>
-            <br></br><br></br><br></br>
+                <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-1">Name</label>
+                <input
+                placeholder="enter name"
+                value={formData.name}
+                onChange={handleInputChange}
+                type="text"
+                id="name"
+                name="name"
+                className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary transition"
+                />
 
-            <label htmlFor="password"> password </label><br></br>
-            <input
-            placeholder="enter password"
-            value={formData.password}
-            onChange={handleInputChange}
-            type="password"
-            id="password"
-            name="password"></input>
-            <br></br><br></br><br></br>
+                <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1">Email</label>
+                <input
+                placeholder="enter email"
+                value={formData.email}
+                onChange={handleInputChange}
+                type="text"
+                id="email"
+                name="email"
+                className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary transition"
+                />
 
-            <label htmlFor="phone">phone </label><br></br>
-            <input
-            placeholder="enter phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            type="text"
-            id="phone"
-            name="phone"></input>
-            <br></br><br></br><br></br>
+                <label htmlFor="password" className="block text-sm font-medium text-text-secondary mb-1">Password</label>
+                <input
+                placeholder="enter password"
+                value={formData.password}
+                onChange={handleInputChange}
+                type="password"
+                id="password"
+                name="password"
+                className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary transition"
+                />
 
-            <select name="role" value={formData.role} onChange={handleInputChange}>
-                <option value="">-- Select role --</option>
-                <option value="customer">Customer</option>
-                <option value="shopOwner">Shop Owner</option>
-            </select>
-            <br></br><br></br><br></br>
-            <button>Submit</button>
+                <label htmlFor="phone" className="block text-sm font-medium text-text-secondary mb-1">Phone</label>
+                <input
+                placeholder="enter phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                type="text"
+                id="phone"
+                name="phone"
+                className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary transition"
+                />
 
-            <p>
-           Already have an account? <Link to="/login">Login</Link>
-            </p>
-        </form>
+                <label htmlFor="role" className="block text-sm font-medium text-text-secondary mb-1">Role</label>
+                <select
+                    name="role"
+                    id="role"
+                    value={formData.role}
+                    onChange={handleInputChange}
+                    className="w-full border border-gray-300 rounded px-3 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-primary transition"
+                >
+                    <option value="">-- Select role --</option>
+                    <option value="customer">Customer</option>
+                    <option value="shopOwner">Shop Owner</option>
+                </select>
+
+                <button className="w-full bg-primary text-white py-2 rounded hover:opacity-90 active:scale-[0.98] transition font-medium">
+                    Submit
+                </button>
+
+                <p className="text-sm text-text-secondary mt-4 text-center">
+                    Already have an account? <Link to="/login" className="text-primary-light hover:underline transition">Login</Link>
+                </p>
+            </form>
+        </div>
     )
 }
 
 export default Register
 
+            
     
-
     
-
-

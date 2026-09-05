@@ -58,8 +58,12 @@ function Login() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label><br />
+        <div className="min-h-screen bg-bg flex items-center justify-center px-4">
+            <form onSubmit={handleSubmit} className="bg-surface p-8 rounded-lg shadow-md w-full max-w-sm">
+
+                <h1 className="text-2xl font-bold text-text-primary mb-6">Login</h1>
+
+            <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1">Email</label><br />
             <input
                 placeholder="enter email"
                 type="text"
@@ -67,10 +71,10 @@ function Login() {
                 onChange={handleInputChange}
                 id="email"
                 name="email"
+                className="w-full border border-gray-300 rounded px-3 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-primary transition"
             />
 
-            <br /><br />
-            <label htmlFor="password">Password</label><br />
+            <label htmlFor="password" className="block text-sm font-medium text-text-secondary mb-1">Password</label><br />
             <input
                 placeholder="enter password"
                 type="password"
@@ -78,15 +82,18 @@ function Login() {
                 onChange={handleInputChange}
                 id="password"
                 name="password"
+                className="w-full border border-gray-300 rounded px-3 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-primary transition"
             />
 
-            <br /><br />
-            <button>Submit</button>
+            <button className="w-full bg-primary text-white py-2 rounded hover:opacity-90 active:scale-[0.98] transition font-medium">Submit</button>
 
-            <p>
-                Don't have an account? <Link to="/register">Register</Link>
+            <p className="text-sm text-text-secondary mt-4 text-center">
+                Don't have an account? <Link to="/register" className="text-primary-light hover:underline transition">Register</Link>
             </p>
+            
         </form>
+        </div>
+        
     );
 }
 
